@@ -1,0 +1,16 @@
+<nav class="h-full bg-white">
+  <ul class="flex items-center flex-col justify-center h-full gap-8">
+    <li *ngFor="let item of userMenu" class="relative z-10 group">
+      <a [routerLink]="item.path" [routerLinkActive]="['bg-primary', 'text-white']"
+        class="rounded-full flex items-center justify-center h-12 w-12 text-xl">
+        <fa-icon [icon]="item.icon"></fa-icon>
+      </a>
+      <span
+        class="absolute left-[4rem] top-0 rounded text-white p-3 group-hover:inline-block
+          bg-primary whitespace-nowrap shadow hidden font-semibold"
+      >
+        {{ item.title }}
+      </span>
+    </li>
+  </ul>
+</nav>

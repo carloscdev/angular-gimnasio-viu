@@ -1,0 +1,53 @@
+<div class="grid grid-cols-[1fr,18rem] gap-5 h-full">
+  <div class="space-x-5 mt-20">
+    <app-paper-base>
+      <app-main-title alignText="text-left">Bienvenido</app-main-title>
+      <app-sub-title alignText="text-left">Gestiona el estado de las clases y consultas</app-sub-title>
+      <div class="md:max-w-[50%] flex flex-col md:flex-row items-center justify-center gap-3 mt-5">
+        <button type="button" class="primary">Registrar Cliente</button>
+        <button type="button" class="secondary">Registrar Cliente</button>
+      </div>
+    </app-paper-base>
+    <app-paper-base>
+      <h3 class="text-primary font-semibold">
+        <a href="#">Mira las próximas clases</a>
+      </h3>
+      <div>
+
+      </div>
+    </app-paper-base>
+    <app-paper-base>
+      <h3 class="text-primary font-semibold">
+        <a href="#">Mira las próximas consultas</a>
+      </h3>
+      <div>
+
+      </div>
+    </app-paper-base>
+  </div>
+  <div class="h-screen bg-white p-5 space-y-5">
+    <div class="bg-secondary p-5 rounded flex items-center gap-1">
+      <figure class="overflow-hidden rounded-full w-16 h-16">
+        <img src="https://randomuser.me/api/portraits/men/0.jpg" alt="Profile">
+      </figure>
+      <h2>
+        <span class="font-bold block text-xl">Rolando R.</span>
+        <small class="font-medium text-xs">ADMIN</small>
+      </h2>
+    </div>
+    <button class="danger  px-5 py-3 flex items-center justify-between">
+      <span>Cerrar Sesión</span>
+      <fa-icon [icon]="faRightFromBracket"></fa-icon>
+    </button>
+    <div class="bg-primary rounded py-5 px-3">
+      <h2 class="text-white text-center font-bold text-xl">Notificaciones</h2>
+      <ul class="space-y-3 max-h-[15rem] overflow-auto my-5">
+        <li class="bg-secondary rounded p-3 text-sm flex gap-3 items-center" *ngFor="let item of notifications">
+          <fa-icon [icon]="faCircleExclamation"></fa-icon>
+          {{ item }}
+        </li>
+      </ul>
+      <a routerLink="/dashboard/users" class="button light">Ver más</a>
+    </div>
+  </div>
+</div>
