@@ -1,28 +1,49 @@
-<div class="grid grid-cols-[1fr,18rem] gap-5 h-full">
-  <div class="space-x-5 mt-20">
+<div class="grid grid-cols-[1fr,18rem] gap-5 h-full max-w-full">
+  <div class="space-x-5 mt-20 w-full">
     <app-paper-base>
       <app-main-title alignText="text-left">Bienvenido</app-main-title>
       <app-sub-title alignText="text-left">Gestiona el estado de las clases y consultas</app-sub-title>
       <div class="md:max-w-[50%] flex flex-col md:flex-row items-center justify-center gap-3 mt-5">
-        <button type="button" class="primary">Registrar Cliente</button>
-        <button type="button" class="secondary">Registrar Cliente</button>
+        <a class="button primary" routerLink="/dashboard/register">Registrar Cliente</a>
+        <button type="button" class="secondary" (click)="onToggleVideo()">Ver Video</button>
       </div>
     </app-paper-base>
     <app-paper-base>
-      <h3 class="text-primary font-semibold">
+      <h3 class="text-primary font-semibold mb-5">
         <a href="#">Mira las próximas clases</a>
       </h3>
-      <div>
-
-      </div>
+      <ul class="grid grid-cols-[repeat(auto-fill,minmax(15rem,1fr))] gap-5">
+        <li *ngFor="let class of classes">
+          <a [routerLink]="['/dashboard/classes', class.id]" class="block border rounded border-gray-100 p-5 hover:bg-secondary cursor-pointer">
+            <h4 class="text-xl font-bold">
+              {{ class.tipo_clase }}
+            </h4>
+            <p class="font-light text-primary-light text-sm mb-5">
+              <span class="block">{{ class.hora }}</span>
+              <span>{{ class.fecha }}</span>
+            </p>
+            <app-progress-bar [total]="class.inscritos" [instructor]="class.instructor"></app-progress-bar>
+          </a>
+        </li>
+      </ul>
     </app-paper-base>
     <app-paper-base>
-      <h3 class="text-primary font-semibold">
+      <h3 class="text-primary font-semibold mb-5">
         <a href="#">Mira las próximas consultas</a>
       </h3>
-      <div>
-
-      </div>
+      <ul class="grid grid-cols-[repeat(auto-fill,minmax(15rem,1fr))] gap-5">
+        <li *ngFor="let consulta of consultas">
+          <a [routerLink]="['/dashboard/consultas']" [queryParams]="{ consulta: consulta.id }" class="block border rounded border-gray-100 p-5 hover:bg-secondary cursor-pointer">
+            <h4 class="text-xl font-bold">
+              {{ consulta.tipo }}
+            </h4>
+            <p class="font-light text-primary-light text-sm">
+              <span class="block">{{ consulta.hora }}</span>
+              <span>{{ consulta.fecha }}</span>
+            </p>
+          </a>
+        </li>
+      </ul>
     </app-paper-base>
   </div>
   <div class="h-screen bg-white p-5 space-y-5">
@@ -35,7 +56,7 @@
         <small class="font-medium text-xs">ADMIN</small>
       </h2>
     </div>
-    <button class="danger  px-5 py-3 flex items-center justify-between">
+    <button class="danger  px-5 py-3 flex items-center justify-between" (click)="onLogout()">
       <span>Cerrar Sesión</span>
       <fa-icon [icon]="faRightFromBracket"></fa-icon>
     </button>
@@ -51,3 +72,5 @@
     </div>
   </div>
 </div>
+
+<app-modal-video *ngIf="showVideo" (closeVideo)="onToggleVideo()"></app-modal-video>

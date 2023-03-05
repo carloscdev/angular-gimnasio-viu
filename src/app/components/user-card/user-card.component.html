@@ -1,0 +1,12 @@
+<div *ngIf="user">
+  <app-paper-base customClass="hover:bg-secondary cursor-pointer" (click)="sendUser()">
+    <h4 class="font-bold">
+      {{ user.nombre }} {{ user.apellido_paterno }}
+    </h4>
+    <p class="text-sm text-primary-light">{{ user.membresia_tipo }}</p>
+    <p class="mt-5 font-bold text-xs"
+      [ngClass]="user.membresia_status === 'ACTIVO' ? 'text-green-500' : 'text-red-500'">
+      {{ user.membresia_status }}
+    </p>
+  </app-paper-base>
+</div>

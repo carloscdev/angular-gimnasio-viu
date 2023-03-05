@@ -6,9 +6,10 @@ export interface UsuarioInterface {
   email: string;
   direccion: string;
   telefono: string;
-  telefono_emergencia: string;
+  telefono_emergencia: string | null;
   genero: 'M' | 'F';
   role: 'ADMINISTRADOR' | 'CLIENTE' | 'INSTRUCTOR' | 'MEDICO';
+  factor: string;
 }
 
 
@@ -18,6 +19,8 @@ export interface InstructorInterface extends UsuarioInterface {
 
 export interface ClienteInterface extends UsuarioInterface {
   preferencias: string;
+  membresia_status: 'ACTIVO' | 'INACTIVO';
+  membresia_tipo: string;
 }
 
 export interface MedicoInterface extends UsuarioInterface {

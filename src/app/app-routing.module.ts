@@ -9,6 +9,8 @@ import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-l
 import { LoginPageComponent } from './pages/auth/login-page/login-page.component';
 import { HomeComponent } from './pages/dashboard/home/home.component';
 import { UsersComponent } from './pages/dashboard/users/users.component';
+import { RegisterComponent } from './pages/dashboard/register/register.component';
+import { ConsultasComponent } from './pages/dashboard/consultas/consultas.component';
 
 const routes: Routes = [
   {
@@ -38,6 +40,14 @@ const routes: Routes = [
         path: 'users',
         component: UsersComponent,
       },
+      {
+        path: 'register',
+        component: RegisterComponent,
+      },
+      {
+        path: 'consultas',
+        component: ConsultasComponent,
+      }
     ],
   },
 ];

@@ -1,0 +1,7 @@
+<div class="w-full bg-secondary rounded-full h-3 border border-gray-100">
+  <div class="h-3 rounded-full" [style.width.%]="total" [ngClass]="totalColor"></div>
+</div>
+<p class="text-primary-light flex items-center justify-between mt-1">
+  <small>{{ instructor }}</small>
+  <small class="text-xs">Aforo: {{ total }}%</small>
+</p>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 interface UsuarioLogin {
   email: string;
@@ -16,7 +17,12 @@ export class LoginPageComponent {
     password: '',
   }
 
+  constructor(
+    private router: Router,
+  ) { }
+
   onLogin() {
     console.log('Login', this.user);
+    this.router.navigate(['/dashboard/home']);
   }
 }

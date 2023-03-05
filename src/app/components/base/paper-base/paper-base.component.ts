@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-paper-base',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./paper-base.component.css']
 })
 export class PaperBaseComponent {
-
+  @Input() customClass = '';
+  @Input() isActive = false;
 }

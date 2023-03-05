@@ -3,29 +3,79 @@
     <app-main-title alignText="text-left">Clientes</app-main-title>
     <div>
       <input type="search" placeholder="Buscar por nombre">
-      <p class="text-right mt-3">Total: 150</p>
+      <p class="text-right mt-3">Total: {{ users.length }}</p>
     </div>
     <hr class="mb-5">
-    <div>
-      <app-paper-base>
-        <h3 class="text-primary font-semibold">
-          <a href="#">Mira las próximas clases</a>
-        </h3>
-        <div>
-
-        </div>
-      </app-paper-base>
+    <div class="grid gap-3">
+      <app-user-card *ngFor="let user of users" [user]="user" (setUser)="setUser($event)"></app-user-card>
     </div>
   </div>
-  <div class="h-screen bg-white p-5 space-y-5">
-    <div class="bg-secondary p-5 rounded flex items-center gap-1">
-      <figure class="overflow-hidden rounded-full w-16 h-16">
-        <img src="https://randomuser.me/api/portraits/men/0.jpg" alt="Profile">
-      </figure>
-      <h2>
-        <span class="font-bold block text-xl">Rolando R.</span>
-        <small class="font-medium text-xs">ADMIN</small>
-      </h2>
+  <div class="h-screen bg-white p-10">
+    <div *ngIf="user">
+      <h2 class="font-bold text-3xl">{{ user.nombre }} {{ user.apellido_paterno }}</h2>
+      <p
+        class="font-bold"
+        [ngClass]="user.membresia_status === 'ACTIVO' ? 'text-green-500' : 'text-red-500'"
+      >
+        {{ user.membresia_tipo}} - {{ user.membresia_status }}
+      </p>
+      <ul class="mt-10">
+        <li>
+          <span class="font-bold pr-5">Fecha Registro: </span>
+          <span>19/19/2023</span>
+        </li>
+        <li>
+          <span class="font-bold pr-5">Fecha Expiración: </span>
+          <span>19/19/2023</span>
+        </li>
+        <li>
+          <span class="font-bold pr-5">Sucursal: </span>
+          <span>Sucursal Centro</span>
+        </li>
+      </ul>
+      <hr class="my-10">
+      <ul>
+        <li>
+          <span class="font-bold pr-5">DNI: </span>
+          <span>{{ user.dni }}</span>
+        </li>
+        <li>
+          <span class="font-bold pr-5">Nombre: </span>
+          <span>{{ user.nombre }}</span>
+        </li>
+        <li>
+          <span class="font-bold pr-5">Apellido Paterno: </span>
+          <span>{{ user.apellido_paterno }}</span>
+        </li>
+        <li>
+          <span class="font-bold pr-5">Apellido Materno: </span>
+          <span>{{ user.apellido_materno }}</span>
+        </li>
+        <li class="mt-5">
+          <span class="font-bold pr-5">Email: </span>
+          <span>{{ user.email }}</span>
+        </li>
+        <li>
+          <span class="font-bold pr-5">Direccion: </span>
+          <span>{{ user.direccion }}</span>
+        </li>
+        <li>
+          <span class="font-bold pr-5">Teléfono: </span>
+          <span>{{ user.telefono }}</span>
+        </li>
+        <li>
+          <span class="font-bold pr-5">Tel. Emergencia: </span>
+          <span>{{ user.telefono_emergencia || '------' }}</span>
+        </li>
+        <li class="mt-5">
+          <span class="font-bold pr-5">Género: </span>
+          <span>{{ user.genero === 'M' ? 'Masculino' : 'Femenino' }}</span>
+        </li>
+        <li>
+          <span class="font-bold pr-5">Factior RH: </span>
+          <span>{{ user.factor }}</span>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

@@ -1,0 +1,53 @@
+<app-paper-base customClass="mt-20 mr-5">
+  <app-main-title alignText="text-left">Nuevo Usuario</app-main-title>
+  <form class="grid grid-cols-2 gap-5 mt-5">
+    <label for="dni">
+      Tipo de Usuario
+      <select>
+        <option [value]="null">Selecciona un tipo de usuario</option>
+      </select>
+    </label>
+    <label for="dni">
+      DNI
+      <input type="text" name="dni" placeholder="Ingresa tu DNI">
+    </label>
+    <label for="nombre">
+      Nombre
+      <input type="text" name="nombre" placeholder="Ingresa tu nombre">
+    </label>
+    <label for="apellido_paterno">
+      Apellido Paterno
+      <input type="text" name="apellido_paterno" placeholder="Ingresa tu apellido paterno">
+    </label>
+    <label for="apellido_materno">
+      Apellido Materno
+      <input type="text" name="apellido_materno" placeholder="Ingresa tu apellido materno">
+    </label>
+    <label for="email">
+      Correo electrónico
+      <input type="email" name="email" placeholder="Ingresa tu email">
+    </label>
+    <label for="membresia">
+      Tipo de Membresía
+      <select>
+        <option [value]="null">Selecciona un tipo de membresía</option>
+      </select>
+    </label>
+    <label for="direccion">
+      Dirección
+      <input type="text" name="direccion" placeholder="Ingresa tu dirección">
+    </label>
+    <label for="factor">
+      Factor RH
+      <input type="text" name="factor" placeholder="Ingresa tu factor RH">
+    </label>
+    <label for="genero">
+      Género
+      <select>
+        <option [value]="null">Selecciona un género</option>
+      </select>
+    </label>
+    <div></div>
+    <button class="primary">Registrar</button>
+  </form>
+</app-paper-base>

@@ -16,6 +16,12 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { UsersComponent } from './pages/dashboard/users/users.component';
 import { SubTitleComponent } from './components/base/sub-title/sub-title.component';
 import { PaperBaseComponent } from './components/base/paper-base/paper-base.component';
+import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
+import { UserCardComponent } from './components/user-card/user-card.component';
+import { RegisterComponent } from './pages/dashboard/register/register.component';
+import { ModalVideoComponent } from './components/modal-video/modal-video.component';
+import { ConsultasComponent } from './pages/dashboard/consultas/consultas.component';
+import { ConsultaCardComponent } from './components/consulta-card/consulta-card.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +34,13 @@ import { PaperBaseComponent } from './components/base/paper-base/paper-base.comp
     SideBarComponent,
     UsersComponent,
     SubTitleComponent,
-    PaperBaseComponent
+    PaperBaseComponent,
+    ProgressBarComponent,
+    UserCardComponent,
+    RegisterComponent,
+    ModalVideoComponent,
+    ConsultasComponent,
+    ConsultaCardComponent
   ],
   imports: [
     AppRoutingModule,

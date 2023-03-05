@@ -3,7 +3,8 @@
 <app-sub-title>Inicia sesión para acceder a tu perfil</app-sub-title>
 
 <form (ngSubmit)="onLogin()" #loginForm="ngForm" class="mt-10 space-y-5">
-  <input type="email" placeholder="Ingresa tu email" name="email" [(ngModel)]="user.email">
-  <input type="password" placeholder="•••••••••" name="password" [(ngModel)]="user.password">
-  <button type="submit" class="primary">INGRESAR</button>
+  <input type="email" rquired placeholder="Ingresa tu email" #email="ngModel" name="email" [(ngModel)]="user.email">
+  <input type="password" required placeholder="•••••••••" #password="ngModel" name="password" [(ngModel)]="user.password">
+
+  <button [disabled]="loginForm.invalid" type="submit" class="primary">INGRESAR</button>
 </form>

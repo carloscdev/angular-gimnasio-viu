@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faHome, faUsers, faDumbbell, faSuitcaseMedical, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUsers, faUserPlus, faDumbbell, faSuitcaseMedical, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 interface UserMenu {
   title: string;
@@ -16,8 +16,9 @@ export class SideBarComponent {
 
   userMenu: UserMenu[] = [
     { title: 'Inicio', path: '/dashboard/home', icon: faHome },
-    { title: 'Usuarios', path: '/dashboard/users', icon: faUsers },
+    { title: 'Clientes', path: '/dashboard/users', icon: faUsers },
+    { title: 'Registrar Cliente', path: '/dashboard/register', icon: faUserPlus },
+    { title: 'Próximas Consultas', path: '/dashboard/consultas', icon: faSuitcaseMedical },
     { title: 'Próximas Clases', path: '/auth/login', icon: faDumbbell },
-    { title: 'Próximas Consultas', path: '/login', icon: faSuitcaseMedical },
   ]
 }
