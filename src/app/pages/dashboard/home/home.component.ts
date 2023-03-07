@@ -89,9 +89,7 @@ export class HomeComponent {
     },
   ];
 
-  constructor(
-    private router: Router,
-  ) { }
+  constructor(private router: Router) {}
 
   onLogout() {
     console.log('Logout');

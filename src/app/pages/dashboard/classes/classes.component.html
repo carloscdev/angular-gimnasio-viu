@@ -1,0 +1,55 @@
+<div class="grid grid-cols-[18rem,1fr] gap-5 h-full">
+  <div class="space-y-5 mt-10">
+    <app-main-title alignText="text-left">Classes</app-main-title>
+    <div>
+      <input type="search" placeholder="Buscar por nombre">
+      <p class="text-right mt-3">Total: {{ classes.length }}</p>
+    </div>
+    <hr class="mb-5">
+    <div class="grid gap-3">
+      <app-class-card *ngFor="let class of classes" [currentClass]="class" (setClass)="setClass($event)"></app-class-card>
+    </div>
+  </div>
+  <div class="h-screen bg-white p-10">
+    <div *ngIf="currentClass">
+      <h2 class="font-bold text-3xl">{{ currentClass.tipo_clase }}</h2>
+      <p
+        class="font-bold"
+        [ngClass]="currentClass.status === 'ABIERTA' ? 'text-green-500' : 'text-red-500'"
+      >
+        {{ currentClass.status }}
+      </p>
+      <ul class="mt-10">
+        <li>
+          <span class="font-bold pr-5">Instructor: </span>
+          <span>{{ currentClass.instructor }}</span>
+        </li>
+        <li>
+          <span class="font-bold pr-5">Fecha Cita: </span>
+          <span>{{ currentClass.fecha }}</span>
+        </li>
+        <li>
+          <span class="font-bold pr-5">Hora Cita: </span>
+          <span>{{ currentClass.hora }}</span>
+        </li>
+      </ul>
+      <hr class="my-10">
+      <ul>
+        <li>
+          <span class="font-bold pr-5">Observaciones: </span>
+          <span>{{ currentClass.observaciones }}</span>
+        </li>
+        <li>
+          <span class="font-bold pr-5">Aforo:</span>
+          <span>{{ currentClass.aforo }}</span>
+        </li>
+      </ul>
+      <hr class="my-10">
+      <ul>
+        <li>
+          <app-progress-bar [total]="currentClass.inscritos" [instructor]="currentClass.instructor"></app-progress-bar>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

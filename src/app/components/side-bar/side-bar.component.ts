@@ -19,6 +19,6 @@ export class SideBarComponent {
     { title: 'Clientes', path: '/dashboard/users', icon: faUsers },
     { title: 'Registrar Cliente', path: '/dashboard/register', icon: faUserPlus },
     { title: 'Próximas Consultas', path: '/dashboard/consultas', icon: faSuitcaseMedical },
-    { title: 'Próximas Clases', path: '/auth/login', icon: faDumbbell },
+    { title: 'Próximas Clases', path: '/dashboard/classes', icon: faDumbbell },
   ]
 }

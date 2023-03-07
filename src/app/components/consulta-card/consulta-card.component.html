@@ -1,1 +1,12 @@
-<p>consulta-card works!</p>
+<div *ngIf="consulta">
+  <app-paper-base customClass="hover:bg-secondary cursor-pointer" (click)="sendConsulta()">
+    <h4 class="font-bold">
+      {{ consulta.tipo }}
+    </h4>
+    <p class="text-sm text-primary-light">{{ consulta.fecha }}</p>
+    <p class="mt-5 font-bold text-xs"
+      [ngClass]="consulta.status === 'AGENDADA' ? 'text-green-500' : 'text-red-500'">
+      {{ consulta.status }}
+    </p>
+  </app-paper-base>
+</div>

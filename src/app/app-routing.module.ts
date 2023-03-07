@@ -11,6 +11,7 @@ import { HomeComponent } from './pages/dashboard/home/home.component';
 import { UsersComponent } from './pages/dashboard/users/users.component';
 import { RegisterComponent } from './pages/dashboard/register/register.component';
 import { ConsultasComponent } from './pages/dashboard/consultas/consultas.component';
+import { ClassesComponent } from './pages/dashboard/classes/classes.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,10 @@ const routes: Routes = [
       {
         path: 'consultas',
         component: ConsultasComponent,
+      },
+      {
+        path: 'classes',
+        component: ClassesComponent,
       }
     ],
   },

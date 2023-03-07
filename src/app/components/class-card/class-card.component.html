@@ -1,0 +1,12 @@
+<div *ngIf="currentClass">
+  <app-paper-base customClass="hover:bg-secondary cursor-pointer" (click)="sendClass()">
+    <h4 class="font-bold">
+      {{ currentClass.tipo_clase }}
+    </h4>
+    <p class="text-sm text-primary-light">{{ currentClass.fecha }}</p>
+    <p class="mt-5 font-bold text-xs"
+      [ngClass]="currentClass.status === 'ABIERTA' ? 'text-green-500' : 'text-red-500'">
+      {{ currentClass.status }}
+    </p>
+  </app-paper-base>
+</div>

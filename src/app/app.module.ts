@@ -22,6 +22,8 @@ import { RegisterComponent } from './pages/dashboard/register/register.component
 import { ModalVideoComponent } from './components/modal-video/modal-video.component';
 import { ConsultasComponent } from './pages/dashboard/consultas/consultas.component';
 import { ConsultaCardComponent } from './components/consulta-card/consulta-card.component';
+import { ClassesComponent } from './pages/dashboard/classes/classes.component';
+import { ClassCardComponent } from './components/class-card/class-card.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { ConsultaCardComponent } from './components/consulta-card/consulta-card.
     RegisterComponent,
     ModalVideoComponent,
     ConsultasComponent,
-    ConsultaCardComponent
+    ConsultaCardComponent,
+    ClassesComponent,
+    ClassCardComponent
   ],
   imports: [
     AppRoutingModule,

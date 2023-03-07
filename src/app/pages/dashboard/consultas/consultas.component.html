@@ -3,14 +3,43 @@
     <app-main-title alignText="text-left">Consultas</app-main-title>
     <div>
       <input type="search" placeholder="Buscar por nombre">
-      <p class="text-right mt-3">Total: 150</p>
+      <p class="text-right mt-3">Total: {{ consultas.length }}</p>
     </div>
     <hr class="mb-5">
     <div class="grid gap-3">
-      <!-- <app-user-card *ngFor="let user of users" [user]="user" (setUser)="setUser($event)"></app-user-card> -->
-      ok
+      <app-consulta-card *ngFor="let consulta of consultas" [consulta]="consulta" (setConsulta)="setConsulta($event)"></app-consulta-card>
     </div>
   </div>
   <div class="h-screen bg-white p-10">
+    <div *ngIf="consulta">
+      <h2 class="font-bold text-3xl">{{ consulta.tipo }}</h2>
+      <p
+        class="font-bold"
+        [ngClass]="consulta.status === 'AGENDADA' ? 'text-green-500' : 'text-red-500'"
+      >
+        {{ consulta.status }}
+      </p>
+      <ul class="mt-10">
+        <li>
+          <span class="font-bold pr-5">Especialista: </span>
+          <span>{{ consulta.medico }}</span>
+        </li>
+        <li>
+          <span class="font-bold pr-5">Fecha Cita: </span>
+          <span>{{ consulta.fecha }}</span>
+        </li>
+        <li>
+          <span class="font-bold pr-5">Hora Cita: </span>
+          <span>{{ consulta.hora }}</span>
+        </li>
+      </ul>
+      <hr class="my-10">
+      <ul>
+        <li>
+          <span class="font-bold pr-5">Indicaciones: </span>
+          <span>{{ consulta.indicaciones }}</span>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

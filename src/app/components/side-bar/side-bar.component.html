@@ -1,4 +1,4 @@
-<nav class="h-full bg-white">
+<nav class="h-full bg-white fixed top-0 left-0 w-[4rem]">
   <ul class="flex items-center flex-col justify-center h-full gap-8">
     <li *ngFor="let item of userMenu" class="relative z-10 group">
       <a [routerLink]="item.path" [routerLinkActive]="['bg-primary', 'text-white']"

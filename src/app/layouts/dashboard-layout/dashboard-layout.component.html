@@ -1,6 +1,8 @@
-<section class="h-screen w-screen bg-gray-100">
+<section class="min-h-screen w-screen bg-gray-100">
   <div class="grid grid-cols-[4rem,1fr] gap-5 h-full">
-    <app-side-bar></app-side-bar>
+    <div class="relative">
+      <app-side-bar></app-side-bar>
+    </div>
     <div>
       <router-outlet></router-outlet>
     </div>

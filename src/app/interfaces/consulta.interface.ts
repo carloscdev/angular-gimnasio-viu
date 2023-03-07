@@ -5,4 +5,5 @@ export interface ConsultaInterface {
   medico: string,
   fecha: string;
   hora: string;
+  indicaciones?: string;
 }
