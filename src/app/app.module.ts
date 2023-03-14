@@ -24,6 +24,12 @@ import { ConsultasComponent } from './pages/dashboard/consultas/consultas.compon
 import { ConsultaCardComponent } from './components/consulta-card/consulta-card.component';
 import { ClassesComponent } from './pages/dashboard/classes/classes.component';
 import { ClassCardComponent } from './components/class-card/class-card.component';
+import { NotificationsComponent } from './pages/dashboard/notifications/notifications.component';
+import { NotificationCardComponent } from './components/notification-card/notification-card.component';
+import { ErrorComponent } from './pages/dashboard/error/error.component';
+
+// Custom Pipes
+import { NotificationsPipe } from './pipes/notifications.pipe';
 
 @NgModule({
   declarations: [
@@ -44,7 +50,11 @@ import { ClassCardComponent } from './components/class-card/class-card.component
     ConsultasComponent,
     ConsultaCardComponent,
     ClassesComponent,
-    ClassCardComponent
+    ClassCardComponent,
+    NotificationsComponent,
+    NotificationsPipe,
+    NotificationCardComponent,
+    ErrorComponent
   ],
   imports: [
     AppRoutingModule,

@@ -62,13 +62,10 @@
     </button>
     <div class="bg-primary rounded py-5 px-3">
       <h2 class="text-white text-center font-bold text-xl">Notificaciones</h2>
-      <ul class="space-y-3 max-h-[15rem] overflow-auto my-5">
-        <li class="bg-secondary rounded p-3 text-sm flex gap-3 items-center" *ngFor="let item of notifications">
-          <fa-icon [icon]="faCircleExclamation"></fa-icon>
-          {{ item }}
-        </li>
+      <ul class="flex flex-col gap-3 max-h-[15rem] overflow-auto my-5">
+        <app-notification-card *ngFor="let notification of notifications" [notification]="notification"></app-notification-card>
       </ul>
-      <a routerLink="/dashboard/users" class="button light">Ver más</a>
+      <a routerLink="/dashboard/notifications" class="button light">Ver más</a>
     </div>
   </div>
 </div>

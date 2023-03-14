@@ -1,0 +1,8 @@
+<div class="my-20 mr-5">
+  <app-main-title alignText="text-left">Notificaciones</app-main-title>
+  <app-paper-base>
+    <ul class="flex flex-col gap-3 my-5">
+      <app-notification-card *ngFor="let notification of notifications" [notification]="notification"></app-notification-card>
+    </ul>
+  </app-paper-base>
+</div>

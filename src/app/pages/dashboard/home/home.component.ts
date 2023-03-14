@@ -2,10 +2,13 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import {
   faRightFromBracket,
-  faCircleExclamation,
 } from '@fortawesome/free-solid-svg-icons';
 import { ClaseInterface } from 'src/app/interfaces/class.interface';
 import { ConsultaInterface } from 'src/app/interfaces/consulta.interface';
+
+import { ClassesService }  from 'src/app/services/classes.service';
+import { ConsultasService }  from 'src/app/services/consultas.service';
+import { NotificationsService }  from 'src/app/services/notifications.service';
 
 @Component({
   selector: 'app-home',
@@ -15,81 +18,30 @@ import { ConsultaInterface } from 'src/app/interfaces/consulta.interface';
 export class HomeComponent {
   // Icons
   faRightFromBracket = faRightFromBracket;
-  faCircleExclamation = faCircleExclamation;
 
   showVideo = false;
 
-  notifications: string[] = [
-    'Recordatorio: Hoy vence la membresía de Carlos',
-    'Recordatorio: Hoy vence la membresía de Juan',
-    'Recordatorio: Hoy vence la membresía de Pedro',
-    'Recordatorio: Hoy vence la membresía de Julio',
-  ];
+  notifications: string[] = [];
 
-  classes: ClaseInterface[] = [
-    {
-      id: 'cla0001',
-      tipo_clase: 'Yoga',
-      observaciones: 'Traer tapete para la clase',
-      aforo: 20,
-      status: 'ABIERTA',
-      fecha: '28/09/2022',
-      hora: '02:00 pm',
-      instructor: 'Rolando D.',
-      inscritos: 12,
-    },
-    {
-      id: 'cla0002',
-      tipo_clase: 'Salsa',
-      observaciones: 'Traer tapete para la clase',
-      aforo: 50,
-      status: 'ABIERTA',
-      fecha: '28/09/2022',
-      hora: '02:00 pm',
-      instructor: 'Rolando D.',
-      inscritos: 48,
-    },
-    {
-      id: 'cla0003',
-      tipo_clase: 'Fight Do',
-      observaciones: 'Traer tapete para la clase',
-      aforo: 45,
-      status: 'ABIERTA',
-      fecha: '28/09/2022',
-      hora: '02:00 pm',
-      instructor: 'Rolando D.',
-      inscritos: 95,
-    },
-  ];
+  classes: ClaseInterface[] = [];
 
-  consultas: ConsultaInterface[] = [
-    {
-      id: 'con001',
-      tipo: 'Nutrición',
-      status: 'AGENDADA',
-      fecha: '28/09/2022',
-      hora: '02:00 pm',
-      medico: 'Maria Morales',
-    },
-    {
-      id: 'con002',
-      tipo: 'Fisioterapia',
-      status: 'AGENDADA',
-      fecha: '28/09/2022',
-      hora: '02:00 pm',
-      medico: 'Pedro Morales',
-    },
-    {
-      id: 'con004',
-      tipo: 'Nutrición',
-      status: 'AGENDADA',
-      fecha: '28/09/2022',
-      hora: '02:00 pm',
-      medico: 'Maria Morales',
-    },
-  ];
+  consultas: ConsultaInterface[] = [];
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private classesService: ClassesService,
+    private consultasService: ConsultasService,
+    private notificationsService: NotificationsService,
+  ) {}
+
+  ngOnInit() {
+    this.classesService.classes
+      .subscribe(classes => this.classes = classes.slice(0, 3));
+    this.consultasService.consultas
+      .subscribe(consultas => this.consultas = consultas.slice(0, 3));
+    this.notificationsService.notifications
+      .subscribe(notifications => this.notifications = notifications.slice(0, 3));
+  }
 
   onLogout() {
     console.log('Logout');

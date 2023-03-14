@@ -12,6 +12,8 @@ import { UsersComponent } from './pages/dashboard/users/users.component';
 import { RegisterComponent } from './pages/dashboard/register/register.component';
 import { ConsultasComponent } from './pages/dashboard/consultas/consultas.component';
 import { ClassesComponent } from './pages/dashboard/classes/classes.component';
+import { NotificationsComponent } from './pages/dashboard/notifications/notifications.component';
+import { ErrorComponent } from './pages/dashboard/error/error.component';
 
 const routes: Routes = [
   {
@@ -52,9 +54,22 @@ const routes: Routes = [
       {
         path: 'classes',
         component: ClassesComponent,
+      },
+      {
+        path: 'notifications',
+        component: NotificationsComponent,
+      },
+      {
+        path: 'error',
+        component: ErrorComponent,
       }
     ],
   },
+  {
+    path: '**',
+    redirectTo: '/dashboard/error',
+    pathMatch: 'full',
+  }
 ];
 
 @NgModule({
